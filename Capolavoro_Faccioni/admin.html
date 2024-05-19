@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Sidebar</title>
+   <link rel="stylesheet" href="sidebar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" charset="UTF-8"></script>
+</head>
+
+<body>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>   
+       </div>
+       <div class="sidebar">
+        <div class="close-btn">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="menu">
+            <div class="item"><a href="admin.html"><i class="fas fa-desktop"></i>Home</a></div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Inserimento<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="inserirementoRiviste.php" class="sub-item">Riviste</a>
+                    <a href="inserisciImmagini.php" class="sub-item">Immagini</a>
+                    <a href="inserireAbbonamento.php" class="sub-item">Abbonamenti</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Cancellazione<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="cancellaRiviste.php" class="sub-item">Riviste</a>
+                    <a href="cancellaAbbonamento.php" class="sub-item">Abbonamenti</a>
+                </div>
+            </div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Modifica<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="modificaRiviste.php" class="sub-item">Riviste</a>
+                    <a href="modificaAbbonamenti.php" class="sub-item">Abbonamenti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main">
+        <h1><br><br>ADMIN PAGE<br></h1>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.sub-btn').click(function() {
+                $(this).next('.sub-menu').slideToggle();
+                $(this).find('.dropdown').toggleClass('rotate');
+            });
+    
+            // Nascondi il pulsante del menu inizialmente
+            $('.menu-btn').css("visibility", "hidden");
+    
+            $('.menu-btn').click(function() {
+                $('.sidebar').removeClass('hidden');
+                $('.menu-btn').css("visibility", "hidden");
+            });
+    
+            $('.close-btn').click(function() {
+                $('.sidebar').addClass('hidden');
+                $('.menu-btn').css("visibility", "visible");
+            });
+        });
+        </script>
+</body>
+
+</html>
